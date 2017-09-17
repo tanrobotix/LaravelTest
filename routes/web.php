@@ -14,12 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-/*Route::get('/contact', 'Controller@test');*/
-Route::get('/test', function(){
-	return view('pages.test');
+Route::get('/welcome', function(){
+	return view('welcome');
 });
-Route::get('/response', 'RequestAPI@RequestToAPI');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/request', 'RequestAPI@showPages');
+Route::post('/request','RequestAPI@requestToAPI');
+Route::get('/response', 'Response@resultProcess');

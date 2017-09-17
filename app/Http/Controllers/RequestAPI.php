@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 
 class RequestAPI extends Controller
 {
-	public function ShowInterface() {
-		//return view('pages.test');
-	}
-	public function RequestToAPI(Request $request) {
+    public function showPages(){
+    	return view('pages.request');
+    }
+    public function requestToAPI(Request $request){
+
 		$origin = $request->input('origin');
 		$destination = $request->input('destination');
 		$departure_date = $request->input('departure_date');
@@ -39,8 +40,7 @@ class RequestAPI extends Controller
 		if ($err) {
 			echo "cURL Error #:" . $err;
 		} else {
-			echo $response;
+			print_r($response);
 		}
 	}
-	
 }
