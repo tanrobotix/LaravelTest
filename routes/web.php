@@ -24,4 +24,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/request', 'RequestAPI@showPages');
 Route::post('/request','RequestAPI@requestToAPI');
-Route::get('/response', 'Response@resultProcess');
+Route::get('/response', 'Response@showResponse');

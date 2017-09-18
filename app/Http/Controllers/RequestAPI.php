@@ -40,7 +40,54 @@ class RequestAPI extends Controller
 		if ($err) {
 			echo "cURL Error #:" . $err;
 		} else {
-			print_r($response);
+			$pr = json_decode($response);
+			/*print_r($result);*/
+			$result = $pr->results;
+
+			foreach ($result as $resultkey => $resultvalue) {
+				$itineraries = $resultvalue->itineraries;
+				foreach ($itineraries as $itinerarieskey => $itinerariesvalue) {
+					$outbound = $itinerariesvalue->outbound;
+					foreach ($outbound as $outboundkey => $outboundvalue) {
+						echo "Departs at: ".$outboundvalue[0]->origin->airport."<br>";
+						echo "Arrives at: ".$outboundvalue[0]->destination->airport."<br>";
+						echo "-----------------<br>";
+					}
+					$inbound = $itinerariesvalue->inbound;
+					foreach ($inbound as $inboundkey => $inboundvalue) {
+						echo "Departs at: ".$inboundvalue[0]->origin->airport."<br>";
+						echo "Arrives at: ".$inboundvalue[0]->destination->airport."<br>";
+						echo "-----------------<br>";
+					}
+				}
+				echo "PRICE: ".$resultvalue->fare->total_price."$<br>";
+				echo "============================<br>";
+			}
+				/*<div class="card card-body card-return-body">
+					<div class="row element-body">
+						<div class="col-md-2">Airl</div>
+						<div class="col-md-1">Ori</div>
+						<div class="col-md-2">Time</div>
+						<div class="col-md-1">Des</div>
+						<div class="col-md-1">Nonstop</div>
+						<div class="col-md-1">CLASS</div>
+						<div class="col-md-3">Price</div>
+						<div class="col-md-1">Button</div>
+					</div>
+					<div class="row element-body line-seperate-return">
+						<div class="col-md-2">Airl</div>
+						<div class="col-md-1">Ori</div>
+						<div class="col-md-2">Time</div>
+						<div class="col-md-1">Des</div>
+						<div class="col-md-1">Nonstop</div>
+						<div class="col-md-1">CLASS</div>
+						<div class="col-md-3">Price</div>
+						<div class="col-md-1">Button</div>
+					</div>
+				</div>*/
+
+
 		}
 	}
 }
+

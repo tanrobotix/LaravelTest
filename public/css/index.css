@@ -30,9 +30,38 @@ html, body {
 
 .title {
   text-align: center;
-  font-size: 84px;
+  font-size: 60px;
 }
-
+.card-custom {
+  margin: auto;
+  max-width: 90rem;
+}
+.card-element {
+  text-align: center;
+  padding: .75rem 1.25rem;
+  background-color: rgba(0,0,0,.05);
+  border-bottom: 1px solid rgba(0,0,0,.125);
+  margin: 0px;
+}
+.element-body{
+  text-align: center;
+  margin: 0px;
+  padding-bottom: 13px;
+  padding-top: 8px;
+}
+.line-seperate-return {
+  border-top: 1px solid rgba(0,0,0,.125);
+  padding-top: 8px;
+  width: 70%;
+}
+.card-body{
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.card-return-body {
+  border-top: 1px solid rgba(0,0,0,.125);
+  border-left: 1px solid rgba(0,0,0,.125);
+  border-right: : 1px solid rgba(0,0,0,.125);
+}
 .links > a {
  text-align: right;
  padding: 0 25px;
